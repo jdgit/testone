@@ -1,0 +1,11 @@
+#!/bin/sh
+
+JSONORDER='/usr/bin/json-order'
+
+FILE1=`mktemp`
+FILE2=`mktemp`
+
+"$JSONORDER" -- "$1" > "$FILE1"
+"$JSONORDER" -- "$2" > "$FILE2"
+
+diff "$FILE1" "$FILE2"
